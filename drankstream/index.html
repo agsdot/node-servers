@@ -1,0 +1,40 @@
+<!doctype>
+<html>
+  <head>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io.connect('http://localhost');
+      socket.on('coffee', function(data){
+        document.getElementById('coffee').innerHTML = data.count;
+      });
+      socket.on('tea', function(data){
+        document.getElementById('tea').innerHTML = data.count;
+      });
+      socket.on('wine', function(data){
+        document.getElementById('wine').innerHTML = data.count;
+      });
+      socket.on('beer', function(data){
+        document.getElementById('beer').innerHTML = data.count;
+      });
+      socket.on('water', function(data){
+        document.getElementById('water').innerHTML = data.count;
+      });
+
+    </script>
+  </head>
+  <body>
+    <h1>Welcome to Drankstream!</h1>
+    <dl>
+      <dt>Coffee</dt>
+      <dd id="coffee">0</dd>
+      <dt>Tea</dt>
+      <dd id="tea">0</dd>
+      <dt>Wine</dt>
+      <dd id="wine">0</dd>
+      <dt>Beer</dt>
+      <dd id="beer">0</dd>
+      <dt>Water</dt>
+      <dd id="water">0</dd>
+    </dl>
+  </body>
+</html>
